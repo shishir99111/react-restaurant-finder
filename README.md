@@ -32,3 +32,11 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 
+### SAMPLE Config File
+> cd <PWD>/src/Config
+> nano index.js
+    module.exports = {
+        SEARCH_API_ENABLED: false,
+        GOOGLE_API_KEY: '<YOU GOOGLE MAP API KEY HERE>',
+        YELP_API_KEY: '<YOU YELP FUSION API KEY HERE>',
+    }
