@@ -16,6 +16,8 @@ class MapBox extends Component{
                 lng: this.props.center.lng
             }
         }
+        this.use_my_location = this.use_my_location.bind(this);
+        this.onPlaceSelected = this.onPlaceSelected.bind(this);
     }
 
     /**
@@ -25,7 +27,7 @@ class MapBox extends Component{
      * @param nextState
      * @return {boolean}
      */
-    shouldComponentUpdate = ( nextProps, nextState )=>{
+    shouldComponentUpdate( nextProps, nextState) {
         if (
         this.state.mapPosition.lat !== this.props.center.lat ||
         this.state.address !== nextState.address || (this.props.businesses.length !== nextProps.businesses.length)
@@ -36,35 +38,35 @@ class MapBox extends Component{
         }
     }
 
-    use_my_location = (lat, lng) => {
+    async use_my_location(lat, lng) {
         const place = {
             formatted_address: '',
             geometry: {
                 location: { lat: ()=>lat, lng: ()=>lng }
             }
         }
-        this.onPlaceSelected(place);
+        await this.onPlaceSelected(place);
     }
 
     /**
      * When the user types an address in the search box
      * @param place
      */
-    onPlaceSelected = (place) => {
+    async onPlaceSelected(place) {
         const address = place.formatted_address,
         // addressArray =  place.address_components,
         latValue = place.geometry.location.lat(),
         lngValue = place.geometry.location.lng();
 
         // Set these values in the state.
-        this.setState({
+        await this.setState({
             address: ( address ) ? address : '',
             mapPosition: {
                 lat: latValue,
                 lng: lngValue
             },
         })
-        this.props.onChange({
+        await this.props.onChange({
             lat: latValue,
             lng: lngValue
         })    // parent update
@@ -72,6 +74,9 @@ class MapBox extends Component{
     
 
     render(){
+        const { google, zoom, businesses, center, height } = this.props;
+        const { mapPosition, address } = this.state;
+
         const defaultMapOptions = {
 			mapTypeControl: false,
 			scaleControl: false,
@@ -81,9 +86,9 @@ class MapBox extends Component{
         const AsyncMap = withScriptjs(
             withGoogleMap(
                 props => (
-                    <GoogleMap google={this.props.google}
-                        defaultZoom={this.props.zoom}
-                        defaultCenter={{ lat: this.state.mapPosition.lat, lng: this.state.mapPosition.lng }}
+                    <GoogleMap google={google}
+                        defaultZoom={zoom}
+                        defaultCenter={{ lat: mapPosition.lat, lng: mapPosition.lng }}
                         defaultOptions={defaultMapOptions}
                         >
 
@@ -94,8 +99,8 @@ class MapBox extends Component{
                             gridSize={60}
                             >
                             {
-                                this.props.businesses.map((b, i)=>
-                                    <Marker google={this.props.google}
+                                businesses.map((b)=>
+                                    <Marker google={google}
                                         onClick={()=> window.location = b.url}
                                         key={b.id}
                                         name={b.name}
@@ -109,7 +114,7 @@ class MapBox extends Component{
                         <UseMyLocation onChange={this.use_my_location}/>
                         {/* For Auto complete Search Box */}
                         <Autocomplete
-                            placeholder={ this.state.address || 'Search Area' } className="search-input search-input-center map_search"
+                            placeholder={ address || 'Search Area' } className="search-input search-input-center map_search"
                             onPlaceSelected={ this.onPlaceSelected }
                             types={['(regions)']}
                         />
@@ -119,17 +124,17 @@ class MapBox extends Component{
         );
 
         let map;
-        if( this.props.center.lat !== undefined ) {
+        if( center.lat !== undefined ) {
             map = <div>
                     <AsyncMap
                         googleMapURL={get_google_map_url()}
                         loadingElement={<div style={{ height: `100%` }} />}
-                        containerElement={<div style={{ height: this.props.height }} />}
+                        containerElement={<div style={{ height: height }} />}
                         mapElement={<div style={{ height: `100%` }} />}
                     />
                 </div>
         } else {
-            map = <div style={{height: this.props.height}} />
+            map = <div style={{height: height}} />
         }
         return( map )
     }

@@ -16,9 +16,12 @@ class App extends Component {
       address: DEFAULT_ADDRESS,  // default_address
       businesses: []
     }
+    this.get_restro_list = this.get_restro_list.bind(this);
+    this.updateAddress = this.updateAddress.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
-  get_restro_list = async ()=>{
+  async get_restro_list(){
     if(SEARCH_API_ENABLED){
       try{
         const option = {
@@ -27,6 +30,7 @@ class App extends Component {
           method: 'GET',
         };
         const req_url = `https://api.yelp.com/v3/businesses/search?latitude=${this.state.address.lat}&longitude=${this.state.address.lng}`;
+        
         const res = await fetch(req_url, option)
         const data = await res.json();
         await this.setState({ businesses: data.businesses })
@@ -39,16 +43,19 @@ class App extends Component {
     }
   }
 
-  updateAddress = async (adr)=>{
+  async updateAddress(adr){
     await this.setState({ address: adr })
     await this.get_restro_list();
   }
 
-  componentDidMount = async ()=>{
+  async componentDidMount(){
     await this.get_restro_list()
   }
 
   render() {
+    const { google } = this.props;
+    const { businesses, address } = this.state;
+
     return (
       <Fragment>
         <MobileHeader></MobileHeader>
@@ -56,17 +63,17 @@ class App extends Component {
           <div className="row page-row">
             <div className="col-lg-4 col-md-4 col-sm-12 col-12 list-view list-view-box scroll-temp">
               {
-                this.state.businesses.map((b, i)=>
-                  <ListItem info={b} key={i}></ListItem>
+                businesses.map((b)=>
+                  <ListItem info={b} key={b.id}></ListItem>
                 )
               }
             </div>
             <div className="col-lg-8 col-md-8 hide-map map-container padding-0">
               <MapBox
                 onChange={this.updateAddress}
-                google={this.props.google}
-                center={this.state.address}
-                businesses={this.state.businesses}
+                google={google}
+                center={address}
+                businesses={businesses}
                 height='665px'
                 zoom={15}
               />

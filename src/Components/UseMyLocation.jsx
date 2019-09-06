@@ -4,15 +4,17 @@ export class UseMyLocation extends Component {
 
     constructor(props){
         super(props);
+        this.showLocation = this.showLocation.bind(this);
+        this.getLocation = this.getLocation.bind(this);
     }
 
-    showLocation = (position)=>{
+    showLocation(position){
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
         this.props.onChange(latitude, longitude);
      }
 
-    errorHandler = (err)=>{
+    errorHandler(err){
         if(err.code === 1) {
            alert("Error: Access is denied!");
         } else if( err.code === 2) {
@@ -20,7 +22,7 @@ export class UseMyLocation extends Component {
         }
      }
         
-    getLocation = ()=>{
+    getLocation(){
         if(navigator.geolocation) {
            // timeout at 60000 milliseconds (60 seconds)
            const options = {timeout:60000};
