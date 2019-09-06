@@ -1,0 +1,162 @@
+/*@media only screen and (max-device-width: 767px) {
+  .hide-map{
+          display: none;
+      }
+  }*/
+  /*.list-item{
+      display:flex;
+  }*/
+
+  html {
+      height: 100%;
+  }
+  body,.container-fluid, .page-row,.list-view,.map-container{
+      height: 100%;
+
+  }
+  /*Scroll bar*/
+  .list-view::-webkit-scrollbar {
+      width: 3px;
+  }
+
+  .list-view::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  }
+
+  .list-view::-webkit-scrollbar-thumb {
+      background-color: darkgrey;
+      outline: 1px solid slategrey;
+  }
+  /*End scroll bar*/
+  .flex-center{
+      display: flex;
+      align-items: center;
+  }
+  .color-white{
+      color: #fff;
+  }
+  .list-view{
+      /*border: 1px solid brown;*/
+      box-shadow: 18px -6px 17px -18px rgba(0,0,0,0.69);
+
+  }
+  .list-item{
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      border-right: 1px solid rgba(0,0,0,0.08);
+
+  }
+  .rating-area{
+      font-size: 12px;
+  }
+  .item-image{
+      max-width: 100px;
+      max-height: 100px;
+  }
+  .padding-10{
+      padding: 10px 0;
+  }
+  .header-top-padding{
+      padding-top: 1.5rem;
+  }
+  .search-input{
+      text-align: center;
+      line-height: 2.5;
+      border: none;
+      border-radius: 2px;
+  }
+  .search-input-center{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 20px;
+  }
+
+  .list-item h4{
+      font-size: 16px;
+  }
+  #map_canvas{
+      height: 100%;
+  }
+  header{
+      background-color: #2cd1e4;
+      padding: 12px;
+  }
+  .header_search{
+      width: 100%;
+      z-index: 1000;
+      box-shadow: -1px 6px 13px -6px rgba(0,0,0,0.6);
+  }
+  .location-btn{
+      background-color: #009888;
+      border:0;
+      border-radius: 2px;
+      padding: 5px;
+  }
+  .map_search{
+      width:50%;
+      z-index: 1000;
+  }
+  .color-blue{
+      background: #00bed7;
+  }
+  .hide-header{
+      display: none;
+  }
+  .padding-0{
+    padding: 0;
+  }
+  .list-view-box{
+    overflow: auto;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .scroll-temp{
+    max-height: 665px;
+    overflow: scroll !important;
+  }
+  .f-right{
+    float: right;
+  }
+  .mb-12{
+    margin-bottom: -12px;
+  }
+  .rating{
+      display: inline-block;
+      margin-bottom: -6px;
+  }
+  .rating-color{
+      color: #e7711b;
+  }
+  .list-item:hover{
+    box-shadow: 2px 3px 6px -2px rgba(0,0,0,0.75);
+    cursor: pointer;
+  }
+
+  .float-location-button{
+        text-align: center;
+        line-height: 2.0;
+        z-index: 1000;
+    }
+    .float-location-button-center{
+        position: absolute;
+        left: 12%;
+        transform: translateX(-50%);
+        top: 20px;
+    }
+
+@media (max-width: 767px){
+      .hide-map{
+          display: none;
+      }
+      .hide-header{
+          display: block;
+      }
+  }
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
