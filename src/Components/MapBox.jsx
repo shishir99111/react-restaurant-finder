@@ -35,6 +35,8 @@ class MapBox extends Component{
             return true
         } else if ( this.props.center.lat === nextProps.center.lat ){
             return false
+        } else {
+            return true;
         }
     }
 
@@ -125,7 +127,7 @@ class MapBox extends Component{
 
         let map;
         if( center.lat !== undefined ) {
-            map = <div>
+            map = <div style={{ 'height': '100%' }}>
                     <AsyncMap
                         googleMapURL={get_google_map_url()}
                         loadingElement={<div style={{ height: `100%` }} />}

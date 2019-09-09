@@ -31,7 +31,7 @@ const ListItem = ({ info }) => {
                 </div>
             </div>
             <div className="col-4 f-right">
-                <img src={info.image_url} className="item-image" alt="restro"></img>
+                <div style={{ backgroundImage: `url(${info.image_url})` }} className="item-image" alt="restro"></div>
             </div>
         </div>
     )

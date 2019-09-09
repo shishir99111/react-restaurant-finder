@@ -10,7 +10,7 @@
   html {
       height: 100%;
   }
-  body,.container-fluid, .page-row,.list-view,.map-container{
+  body,.container-fluid, .page-row,.list-view,.map-container,#root{
       height: 100%;
 
   }
@@ -51,6 +51,9 @@
   .item-image{
       max-width: 100px;
       max-height: 100px;
+      height: 100px;
+      background-size: cover;
+      background-repeat: no-repeat;
   }
   .padding-10{
       padding: 10px 0;
@@ -109,10 +112,6 @@
     overflow: auto;
     border-bottom: 1px solid rgba(0,0,0,0.08);
   }
-  .scroll-temp{
-    max-height: 665px;
-    overflow: scroll !important;
-  }
   .f-right{
     float: right;
   }
@@ -136,12 +135,7 @@
         line-height: 2.0;
         z-index: 1000;
     }
-    .float-location-button-center{
-        position: absolute;
-        left: 12%;
-        transform: translateX(-50%);
-        top: 20px;
-    }
+    
 
 @media (max-width: 767px){
       .hide-map{
@@ -151,6 +145,15 @@
           display: block;
       }
   }
+
+@media (min-width: 768px){
+    .float-location-button-center{
+        position: absolute;
+        left: 12%;
+        transform: translateX(-50%);
+        top: 20px;
+    }
+}
 
 @keyframes App-logo-spin {
   from {

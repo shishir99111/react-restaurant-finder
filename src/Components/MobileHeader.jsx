@@ -18,8 +18,7 @@ const MobileHeader = (props) => {
             <div className="row padding-10 flex-center color-white">
                 <div className="col-6">
                     {/* <button className="location-btn color-white">USE MY LOCATION</button> */}
-                    {/* onChange={this.use_my_location} */}
-                    <UseMyLocation />
+                    <UseMyLocation onChange={(lat, lng) => props.onChange(lat, lng)} />
                 </div>
                 <div className="col-6">
                     <b>Show on Map</b>
