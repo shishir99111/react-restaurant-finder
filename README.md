@@ -1,6 +1,6 @@
 # React Restaurant Finder
 
-A application which summarises all the restautant in Location near you or the location provided utilizing Yelp Fusion API, Google Map JS API, Places API.
+An application which fetches & summarises all the restautants in "Location near you" or the Location entered utilizing Yelp Fusion API, Google Map JS API, Places API.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
