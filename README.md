@@ -19,7 +19,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 > cd <PWD>/server
 > nano .env
     PORT=4000
-    NODE_ENV=dev
+    NODE_ENV=PRODUCTION
     YELP_API_KEY='<YOUR YELP KEY>'
 
 # Setup Prod Codebase
@@ -37,7 +37,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 > npm start     // Development mode
 > cd server     // In new terminal
 > npm install
-> node index.js // start server for yelp service
+> node index.js // start server for yelp service (to avoid CORS Issue)
 > Go to http://localhost:3000
 
 ## Available Scripts
