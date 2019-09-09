@@ -8,7 +8,7 @@ var rp = require('request-promise');
 require('dotenv').config({ path: path.join(__dirname, '/.env') });
 
 const PORT = process.env.PORT;
-const INDEX_PATH = './viewer.html';
+const INDEX_PATH = './index.html';
 
 app.use(cors());
 
@@ -17,7 +17,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static('./'));
+app.use(express.static(path.join(__dirname, '/../build/')));
 
 app.get('/restro', (req, res)=>{
     try{
@@ -37,10 +37,10 @@ app.get('/restro', (req, res)=>{
     }
 });
 
-// app.get(['/'], (req, res) => {
-//   res.sendFile(path.join(__dirname, INDEX_PATH));
-//     res.sendFile('viewer.html');
-// });
+app.get(['/'], (req, res) => {
+  res.sendFile(path.join(__dirname, INDEX_PATH));
+    // res.sendFile('viewer.html');
+});
 
 http.listen(PORT, () => {
   console.log(`listening on PORT ${PORT}, ${process.env.NODE_ENV} ENVIRONMENT.`);

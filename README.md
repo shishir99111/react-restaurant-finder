@@ -22,12 +22,23 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     NODE_ENV=dev
     YELP_API_KEY='<YOUR YELP KEY>'
 
-# Setup Codebase (Considering Env config completed)
+# Setup Prod Codebase
+> Go to project directory
+> npm install
+> npm run build // Production mode
+> cd server     // In new terminal
+> npm install
+> node index.js
+> Go to http://localhost:4000
+
+# Setup Dev Codebase (Considering Env config completed)
 > Go to project directory
 > npm install
 > npm start     // Development mode
 > cd server     // In new terminal
+> npm install
 > node index.js // start server for yelp service
+> Go to http://localhost:3000
 
 ## Available Scripts
 
@@ -53,5 +64,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### ToDO
 - Mobile Header Functions
-- Instruction to generate Production build
 - Add Redux
