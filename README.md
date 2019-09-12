@@ -4,11 +4,11 @@ An application which fetches & summarises all the restaurants in "Location near 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-
+### Desktop Version
 ![Desktop Version](https://user-images.githubusercontent.com/13572684/64541229-25ace900-d33f-11e9-89ec-514da77dbfee.png)
 
 
-
+### Mobile Version
 ![Mobile Version](https://user-images.githubusercontent.com/13572684/64541209-1e85db00-d33f-11e9-8996-b6fa1707e9ab.png)
 
 # Requirement
@@ -16,6 +16,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Nodejs ^v8.x.x
 
 ### Setup Env config
+
+```bash
 > cd <PWD>/src/Config
 > nano index.js
     module.exports = {
@@ -28,6 +30,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     PORT=4000
     NODE_ENV=PRODUCTION
     YELP_API_KEY='<YOUR YELP KEY>'
+```
 
 # Setup Prod Codebase
 
