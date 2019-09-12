@@ -1,6 +1,6 @@
 # React Restaurant Finder
 
-An application which fetches & summarises all the restautants in "Location near you" or the Location entered utilizing Yelp Fusion API, Google Map JS API, Places API.
+An application which fetches & summarises all the restaurants in "Location near you" or the Location entered. Utilizing Yelp Fusion API, Google Map JS API, Places API.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -30,6 +30,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     YELP_API_KEY='<YOUR YELP KEY>'
 
 # Setup Prod Codebase
+
+```bash
 > Go to project directory
 > npm install
 > npm run build // Production mode
@@ -37,8 +39,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 > npm install
 > node index.js
 > Go to http://localhost:4000
+```
 
 # Setup Dev Codebase (Considering Env config completed)
+
+```bash
 > Go to project directory
 > npm install
 > npm start     // Development mode
@@ -46,6 +51,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 > npm install
 > node index.js // start server for yelp service (to avoid CORS Issue)
 > Go to http://localhost:3000
+```
 
 ## Available Scripts
 
@@ -69,6 +75,10 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### ToDO
-- Mobile Header Functions
+# ToDO
 - Add Redux
+- Loading spinner on "app first load" & "use my location" functionality.
+- Mobile Header Functions
+	- Search box for Mobile Header
+	- Use my location function in Mobile Header Button
+	- Add Full scale view on Mobile view when toggle is ON for Show map.
