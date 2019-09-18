@@ -80,8 +80,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 # ToDO
 - Add Redux
-- Loading spinner on "app first load" & "use my location" functionality.
-- Mobile Header Functions
 	- Search box for Mobile Header
 	- Use my location function in Mobile Header Button
 	- Add Full scale view on Mobile view when toggle is ON for Show map.
+- Loading spinner on "app first load" & "use my location" functionality.
